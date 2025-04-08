@@ -9,7 +9,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # check .html file extensions
 
-RewriteCond %{REQUEST_FILENAME}\.html -f 
+RewriteCond %{REQUEST_FILENAME}\.html -f
 
 # DA RULE let's show .html pages 
 
