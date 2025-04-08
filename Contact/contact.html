@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Nicolas Delariviere</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="favicon-placeholder.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Nicolas Delariviere</h1>
+    <nav>
+      <ul>
+        <li class="header-item"><a href="index.html">Home</a></li>
+        <li class="header-item"><a href="visual-development.html">Visual Development</a></li>
+        <li class="header-item"><a href="storyboard.html">Storyboard</a></li>
+        <li class="header-item"><a href="illustration.html" >Illustration</a></li>
+        <li class="header-item"><a href="contact.html" class="active">Contact </a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    
+    <section class="contact-info">
+      <div class="email-line">Email : <a href="mailto:delariviere.contact@gmail.com">delariviere.contact@gmail.com</a></div>
+
+      <div class="social-icons contact-icons">
+        <a href="https://www.instagram.com/na_coli/" target="_blank" rel="noopener">
+          <img src="instagram-icon.png" alt="Instagram" />
+        </a>
+        <a href="https://www.linkedin.com/in/nicolas-delariviere/" target="_blank" rel="noopener">
+          <img src="linkedin-icon.png" alt="LinkedIn" />
+        </a>
+      </div>
+
+      <div class="cv-preview-container">
+          <img src="images/CV NICOLAS DELARIVIERE.png" alt="CV Preview" class="cv-preview" id="cv-image" />
+        </a>
+      </div>
+      
+      
+    </section>
+  </main>
+
+  <footer>
+    <a href="#top" class="back-to-top">↑<br> <small class="backtotoptext"> back to top </small></a>
+    <br>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/na_coli/" ><img src="instagram-icon.png" alt="Instagram" /></a>
+      <a href="https://www.linkedin.com/in/nicolas-delariviere/" target="_blank"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
+      <a href="mailto:delariviere.contact@gmail.com" target="_blank"><img src="email-icon.png" alt="Email" /></a>
+    </div>
+    <div>&copy; 2025 Nicolas Delariviere. All rights reserved.</div>
+  </footer>
+  
+  <div id="cv-lightbox">
+    <img src="images/CV NICOLAS DELARIVIERE.png" alt="Fullscreen CV">
+  </div>
+
+  <script>
+    const cvImg = document.getElementById('cv-image');
+    const lightbox = document.getElementById('cv-lightbox');
+  
+    function disableScroll() {
+      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.position = 'fixed';
+      document.body.style.overflow = 'hidden';
+      document.body.style.width = '100%';
+    }
+  
+    function enableScroll() {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.overflow = '';
+      document.body.style.width = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  
+    cvImg.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      disableScroll();
+    });
+  
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      enableScroll();
+    });
+  </script>
+
+</body>
+</html>
