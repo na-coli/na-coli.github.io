@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storyboard - Nicolas Delariviere</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon-placeholder.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+      <h1 class="logo">Nicolas Delariviere</h1>
+        <nav>
+          <ul>
+            <li class="header-item"><a href="index.html">Home</a></li>
+            <li class="header-item"><a href="visual-development.html">Visual Development</a></li>
+            <li class="header-item"><a href="storyboard.html" class="active">Storyboard</a></li>
+            <li class="header-item"><a href="illustration.html">Illustration</a></li>
+            <li class="header-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+
+
+  <main>
+    <!-- Cleaned and fixed Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+    <div class="lightbox-caption"></div>
+    <div class="lightbox-arrow lightbox-prev">&#10094;</div>
+    <div class="lightbox-arrow lightbox-next">&#10095;</div>
+  </div>
+
+    <section class="project-section">
+      <h2 class="embed-container">Storyboard Deck 1</h2>
+      <div class="responsive-media">
+      <iframe width="960" height="540" src="https://speakerdeck.com/player/bad725ae1a694731be128cc84e18303e" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms"></iframe>
+    </div>
+      <p class="caption">Placeholder description for storyboard presentation 1.</p>
+      
+
+      <h2 class="embed-container">Storyboard Deck 2</h2>
+      <div class="responsive-media">
+      <iframe width="960" height="540" src="https://speakerdeck.com/player/746fff0875c04de59f5b05f0db591c65" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms"></iframe>
+    </div>
+      <p class="caption">Placeholder description for storyboard presentation 2.</p>
+
+      <h2 class="embed-container">Storyboard Deck 3</h2>
+      <div class="responsive-media">
+      <iframe width="960" height="540" src="https://speakerdeck.com/player/d555a3cc227549cda2181a3769d4501a" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms"></iframe>
+     </div>
+     <p class="caption">Placeholder description for storyboard presentation 3.</p>
+
+      <h2 class="embed-container">Storyboard Video</h2>
+      <div class="responsive-media">
+      <video width="960" height="540" controls poster="video-poster-placeholder.jpg">
+        <source src="placeholder-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+      <p class="caption">Placeholder description for the storyboard video.</p>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-title">Storyboard Frames</h2>
+      <div class="project-grid grid-5x2">
+        <div class="project-item"><img src="placeholder1.jpg" alt="Storyboard Frame 1" class="lightbox-enabled" data-caption="Frame 1" ><div class="caption ">Frame 1</div></div>
+        <div class="project-item"><img src="placeholder2.jpg" alt="Storyboard Frame 2" class="lightbox-enabled" data-caption="Frame 2"><div class="caption">Frame 2</div></div>
+        <div class="project-item"><img src="placeholder3.jpg" alt="Storyboard Frame 3" class="lightbox-enabled" data-caption="Frame 3"><div class="caption">Frame 3</div></div>
+        <div class="project-item"><img src="placeholder4.jpg" alt="Storyboard Frame 4" class="lightbox-enabled" data-caption="Frame 4"><div class="caption">Frame 4</div></div>
+        <div class="project-item"><img src="placeholder5.jpg" alt="Storyboard Frame 5" class="lightbox-enabled" data-caption="Frame 5"><div class="caption">Frame 5</div></div>
+        <div class="project-item"><img src="placeholder6.jpg" alt="Storyboard Frame 6" class="lightbox-enabled" data-caption="Frame 6"><div class="caption">Frame 6</div></div>
+        <div class="project-item"><img src="placeholder7.jpg" alt="Storyboard Frame 7" class="lightbox-enabled" data-caption="Frame 7"><div class="caption">Frame 7</div></div>
+        <div class="project-item"><img src="placeholder8.jpg" alt="Storyboard Frame 8" class="lightbox-enabled" data-caption="Frame 8"><div class="caption">Frame 8</div></div>
+        <div class="project-item"><img src="placeholder9.jpg" alt="Storyboard Frame 9" class="lightbox-enabled" data-caption="Frame 9"><div class="caption">Frame 9</div></div>
+        <div class="project-item"><img src="placeholder10.jpg" alt="Storyboard Frame 10" class="lightbox-enabled" data-caption="Frame 10"><div class="caption" >Frame 10</div></div>
+      </div>
+    </section>
+
+    </main>
+    
+<br>
+<br>
+<section class="contact-section">
+  <a href="contact.html" class="contact-size">Contact</a>
+</section>
+  
+    <footer>
+      <a href="#top" class="back-to-top">↑<br> <small class="backtotoptext"> back to top </small></a>
+      <br>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/na_coli/" target="_blank"><img src="instagram-icon.png" alt="Instagram" /></a>
+        <a href="https://www.linkedin.com/in/nicolas-delariviere/" target="_blank"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
+        <a href="mailto:delariviere.contact@gmail.com" target="_blank"><img src="email-icon.png" alt="Email" /></a>
+      </div>
+      <div>&copy; 2025 Nicolas Delariviere. All rights reserved.</div>
+    </footer>
+
+  
+    <script>
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.querySelector(".lightbox-img");
+      const lightboxCaption = document.querySelector(".lightbox-caption");
+      const closeBtn = document.querySelector(".lightbox-close");
+      const nextBtn = document.querySelector(".lightbox-next");
+      const prevBtn = document.querySelector(".lightbox-prev");
+      const images = Array.from(document.querySelectorAll(".project-item img"));
+      let currentIndex = 0;
+    
+      function disableScroll() {
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.position = 'fixed';
+        document.body.style.overflow = 'hidden';
+        document.body.style.width = '100%';
+      }
+    
+      function enableScroll() {
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.overflow = '';
+        document.body.style.width = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    
+      function openLightbox(index) {
+        currentIndex = index;
+        const img = images[index];
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.dataset.caption || "";
+        lightbox.style.display = "flex";
+        disableScroll();
+      }
+    
+      function closeLightbox() {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+        lightboxCaption.textContent = "";
+        enableScroll();
+      }
+    
+      function showNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        openLightbox(currentIndex);
+      }
+    
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        openLightbox(currentIndex);
+      }
+    
+      images.forEach((img, i) => {
+        img.addEventListener("click", () => openLightbox(i));
+      });
+    
+      closeBtn.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+    
+      nextBtn.addEventListener("click", showNext);
+      prevBtn.addEventListener("click", showPrev);
+    
+      document.addEventListener("keydown", (e) => {
+        if (lightbox.style.display === "flex") {
+          if (e.key === "ArrowRight") showNext();
+          else if (e.key === "ArrowLeft") showPrev();
+          else if (e.key === "Escape") closeLightbox();
+        }
+      });
+    
+      document.querySelectorAll('img').forEach(img => {
+        img.onerror = function () {
+          this.classList.add('img-placeholder');
+        };
+      });
+    </script>
+    
+
+  
+</body>
+</html>
