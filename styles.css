@@ -451,6 +451,25 @@ footer {
   }
 
   @media (max-width: 600px) {
+    .lightbox-prev {
+        left: 3rem;
+    }
+    
+    .lightbox-next {
+        right: 3rem;
+    }
+    
+    .lightbox-caption {
+
+        font-size: 1rem !important;
+    }
+
+    .lightbox-arrow {
+        
+        font-size: 3rem !important;
+
+    }
+
     .grid-section {
         grid-template-columns: 1fr;
     }
@@ -464,6 +483,22 @@ footer {
 }
 
 @media (max-width: 1024px) {
+    .lightbox-prev {
+        left: 3rem;
+    }
+    
+    .lightbox-next {
+        right: 3rem;
+    }
+    
+    .lightbox-caption {
+
+        font-size: 1rem !important;
+    }
+    .lightbox-arrow {
+        font-size: 3rem !important;
+    }
+
     .grid-2x2,
     .grid-4-horizontal,
     .grid-5x2,
