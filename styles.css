@@ -142,7 +142,6 @@ body {
     text-align: center;
     min-height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
 }
 header {
     background-color: #f1f0f0;
