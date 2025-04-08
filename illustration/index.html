@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Illustration - Nicolas Delariviere</title>
+  <link rel="stylesheet" href="../styles.css"/>
+  <link rel="icon" href="favicon-placeholder.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+</head>
+<body>
+  <header>
+    <h1 class="logo" >Nicolas Delariviere</h1>
+    <nav>
+      <ul>
+        <li class="header-item"><a href="..//home" >Home</a></li>
+        <li class="header-item"><a href="..//visual-development-concept-art">Visual Development</a></li>
+        <li class="header-item"><a href="..//storyboard">Storyboard</a></li>
+        <li class="header-item"><a href=".//illustration" class="active">Illustration</a></li>
+        <li class="header-item"><a href="..//contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+     <!-- Cleaned and fixed Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+    <div class="lightbox-caption"></div>
+    <div class="lightbox-arrow lightbox-prev">&#10094;</div>
+    <div class="lightbox-arrow lightbox-next">&#10095;</div>
+  </div>
+
+    <section class="project-section">
+      <!-- 1x1 full-width images -->
+      <div class="illustration-full">
+        <div class="project-item">
+          <img src="images\I stole a piece of the monolith now I'm running away.png" alt="Illustration 1" data-full="placeholder1.jpg" data-caption="I stole a piece off the monolith now I'm running away."/>
+          <div class="caption">I stole a piece off the monolith now I'm running away.</div>
+        </div>
+        <div class="project-item">
+          <img src= "images\My very own kingdom.png" alt="Illustration 2" data-full="placeholder2.jpg"/>
+        </div>
+        <div class="project-item">
+          <img src="images\Dark times.png" alt="Illustration 3" data-full="placeholder3.jpg"/>
+        </div>
+        <div class="project-item">
+          <img src="placeholder4.jpg" alt="Illustration 4" data-full="placeholder4.jpg"/>
+        </div>
+      </div>
+
+      <!-- Smaller grouped illustrations (up to 5 in a row) -->
+      <div class="project-grid grid-5x1">
+        <div class="project-item">
+          <img src="small1.jpg" alt="Small Illustration 1" data-full="small1.jpg"/>
+        </div>
+        <div class="project-item">
+          <img src="small2.jpg" alt="Small Illustration 2" data-full="small2.jpg"/>
+        </div>
+        <div class="project-item">
+          <img src="small3.jpg" alt="Small Illustration 3" data-full="small3.jpg"/>
+        </div>
+        <div class="project-item">
+          <img src="small4.jpg" alt="Small Illustration 4" data-full="small4.jpg"/>
+        </div>
+        <div class="project-item">
+          <img src="small5.jpg" alt="Small Illustration 5" data-full="small5.jpg"/>
+        </div>
+      </div>
+    </section>
+
+    </main>
+    <br>
+    <br>
+<section class="contact-section">
+  <a href="contact.html" class="contact-size">Contact</a>
+</section>
+
+
+    <footer>
+      <a href="#top" class="back-to-top">↑<br> <small class="backtotoptext"> back to top </small></a>
+      <br>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/na_coli/" target="_blank"><img src="instagram-icon.png" alt="Instagram" /></a>
+        <a href="https://www.linkedin.com/in/nicolas-delariviere/" target="_blank"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
+        <a href="mailto:delariviere.contact@gmail.com" target="_blank"><img src="email-icon.png" alt="Email" /></a>
+      </div>
+      <div>&copy; 2025 Nicolas Delariviere. All rights reserved.</div>
+    </footer>
+
+
+    <script>
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.querySelector(".lightbox-img");
+      const lightboxCaption = document.querySelector(".lightbox-caption");
+      const closeBtn = document.querySelector(".lightbox-close");
+      const nextBtn = document.querySelector(".lightbox-next");
+      const prevBtn = document.querySelector(".lightbox-prev");
+      const images = Array.from(document.querySelectorAll(".project-item img"));
+      let currentIndex = 0;
+    
+      function disableScroll() {
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.position = 'fixed';
+        document.body.style.overflow = 'hidden';
+        document.body.style.width = '100%';
+      }
+    
+      function enableScroll() {
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.overflow = '';
+        document.body.style.width = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    
+      function openLightbox(index) {
+        currentIndex = index;
+        const img = images[index];
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.dataset.caption || "";
+        lightbox.style.display = "flex";
+        disableScroll();
+      }
+    
+      function closeLightbox() {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+        lightboxCaption.textContent = "";
+        enableScroll();
+      }
+    
+      function showNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        openLightbox(currentIndex);
+      }
+    
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        openLightbox(currentIndex);
+      }
+    
+      images.forEach((img, i) => {
+        img.addEventListener("click", () => openLightbox(i));
+      });
+    
+      closeBtn.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+    
+      nextBtn.addEventListener("click", showNext);
+      prevBtn.addEventListener("click", showPrev);
+    
+      document.addEventListener("keydown", (e) => {
+        if (lightbox.style.display === "flex") {
+          if (e.key === "ArrowRight") showNext();
+          else if (e.key === "ArrowLeft") showPrev();
+          else if (e.key === "Escape") closeLightbox();
+        }
+      });
+    
+      document.querySelectorAll('img').forEach(img => {
+        img.onerror = function () {
+          this.classList.add('img-placeholder');
+        };
+      });
+    </script>
+    
+</body>
+</html>
