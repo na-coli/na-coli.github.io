@@ -396,7 +396,8 @@ footer {
     background: #f1f0f0;
     height: 100%;
     width: 100%;
-    display: block;}
+    display: block;
+}
 
 .project-item:hover img {
     opacity: 1;
