@@ -433,29 +433,30 @@ video {
 
 .grid321 {
 
-    grid-template-columns: 1.92fr 2.2fr 3fr 5.52fr;
+    grid-template-columns: 1.92fr 2.2fr 3fr 5.52fr !important;
     }
 
 
 .grid1-3 {
-    grid-template-columns: 1fr 3.8fr;
+    grid-template-columns: 1fr 3.8fr !important;
 }
 
 .pleinair5 {
 
-    grid-template-columns: 1fr 0.92fr 1.4fr 0.79fr 0.8fr;
+    grid-template-columns: 1fr 0.92fr 1.4fr 0.79fr 0.8fr !important;
 
 }
 
 .pleinair3 {
-    grid-template-columns: 0.45fr 0.92fr 1.05fr ;
+    grid-template-columns: 0.45fr 0.92fr 1.05fr !important ;
 
 
 }
 
 .recipes {
-    grid-template-columns: 1fr 0.888fr;
+    grid-template-columns: 1fr 0.888fr !important;
 }
+
 
 /* Responsive media container (for iframes and videos) */
 .responsive-media {
