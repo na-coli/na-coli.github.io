@@ -441,6 +441,21 @@ video {
     grid-template-columns: 1fr 3.8fr;
 }
 
+.pleinair5 {
+
+    grid-template-columns: 1fr 0.92fr 1.4fr 0.79fr 0.8fr;
+
+}
+
+.pleinair3 {
+    grid-template-columns: 0.45fr 0.92fr 1.05fr ;
+
+
+}
+
+.recipes {
+    grid-template-columns: 1fr 0.888fr;
+}
 
 /* Responsive media container (for iframes and videos) */
 .responsive-media {
