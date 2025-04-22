@@ -248,7 +248,7 @@ main {
     
 }
 .contact-size {
-    font-size: 20px !important;
+    font-size: 25px !important;
 }
 .contact-section a {
     font-size: 1rem;
@@ -292,7 +292,7 @@ footer {
     
     display: block;
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 3rem;
     text-decoration: none;
     color: #666;
     transition: all 0.3s ease;
@@ -362,6 +362,9 @@ footer {
     row-gap: 0.1rem;
     padding: 0;
 }
+.grid-4 {
+grid-template-columns: repeat(4, 1fr);
+}
 
 
 .grid-5x1 {
@@ -404,11 +407,18 @@ footer {
     transform: scale(1.03);
 }
 
+video {
+
+    padding: 0;
+    margin: 0;
+}
+
 .caption {
     font-size: 1.2rem;
     color: #666;
     padding: 0.5rem;
     align-items: center;
+    
 }
 .project-item .caption {
     font-size: 1.2rem;
@@ -419,18 +429,35 @@ footer {
 
 
 
+/*special manual formatting for grid templates */
+
+.grid321 {
+
+    grid-template-columns: 1.92fr 2.2fr 3fr 5.52fr;
+    }
+
+
+.grid1-3 {
+    grid-template-columns: 1fr 3.8fr;
+}
+
+
 /* Responsive media container (for iframes and videos) */
 .responsive-media {
     position: relative;
+    margin: 0;
+    padding: 0;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
-    max-width: 960px;
+    max-width: 1100px;
     margin: 1rem auto; /* reduce vertical space */
   }
   
   .responsive-media iframe,
   .responsive-media video {
+    margin: 0;
+    padding: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -438,8 +465,18 @@ footer {
     height: 100%;
     border: none;
   }
+  .responsive-media video {
+    object-fit: contain;
+}
 
   @media (max-width: 600px) {
+
+    
+    .project-grid {
+        justify-content: center !important;
+      }
+
+     
 
     .lightbox {
         scale : 1.1;
@@ -498,15 +535,6 @@ footer {
         font-size: 3rem !important;
     }
 
-    .grid-2x2,
-    .grid-4-horizontal,
-    .grid-5x2,
-    .grid-5x1,
-    .grid-6x1,
-    .grid-7x1 {
-      grid-template-columns: 1fr !important;
-    }
-  
     .project-grid {
       justify-content: center;
     }
