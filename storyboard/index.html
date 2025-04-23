@@ -250,6 +250,36 @@
           this.classList.add('img-placeholder');
         };
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".project-item");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-in");
+          observer.unobserve(entry.target); // Only animate once
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    items.forEach((item) => {
+      // Check if item is already in the viewport
+      const rect = item.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (inView) {
+        item.classList.add("fade-in");
+      } else {
+        observer.observe(item);
+      }
+    });
+  });
+
+
+      
     </script>
     
 
