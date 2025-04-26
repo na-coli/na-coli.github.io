@@ -249,12 +249,16 @@ function showPrev() {
           else if (e.key === "Escape") closeLightbox();
         }
       });
+
+          //placeholder styling for image errors 
     
       document.querySelectorAll('img').forEach(img => {
         img.onerror = function () {
           this.classList.add('img-placeholder');
         };
       });
+
+      // fade in animation on images
 
       document.addEventListener("DOMContentLoaded", function () {
     const items = document.querySelectorAll(".project-item");
@@ -263,7 +267,7 @@ function showPrev() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("fade-in");
-          observer.unobserve(entry.target); // Only animate once
+
         }
       });
     }, {
