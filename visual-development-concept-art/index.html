@@ -203,7 +203,6 @@
       <a href="..//contact" class="contact-size">Contact</a>
     </section>
 
-  </main>
 
   <footer>
     <a href="#top" class="back-to-top">↑<br> <small class="backtotoptext"> back to top </small></a>
@@ -244,13 +243,13 @@
     }
   
     function openLightbox(index) {
-      currentIndex = index;
-      const img = images[index];
-      lightboxImg.src = img.src;
-      lightboxCaption.textContent = img.dataset.caption || "";
-      lightbox.style.display = "flex";
-      disableScroll();
-    }
+  currentIndex = index;
+  const img = images[index];
+  lightboxImg.src = img.src;
+  lightboxCaption.textContent = img.dataset.caption || "";
+  lightbox.style.display = "flex";
+  disableScroll();
+}
   
     function closeLightbox() {
       lightbox.style.display = "none";
@@ -260,16 +259,19 @@
     }
   
     function showNext() {
-      currentIndex = (currentIndex + 1) % images.length;
-      openLightbox(currentIndex);
-      disableScroll();
-    }
-  
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      openLightbox(currentIndex);
-      disableScroll();
-    }
+  currentIndex = (currentIndex + 1) % images.length;
+  const img = images[currentIndex];
+  lightboxImg.src = img.src;
+  lightboxCaption.textContent = img.dataset.caption || "";
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  const img = images[currentIndex];
+  lightboxImg.src = img.src;
+  lightboxCaption.textContent = img.dataset.caption || "";
+}
+
   
     images.forEach((img, i) => {
       img.addEventListener("click", () => openLightbox(i));

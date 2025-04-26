@@ -644,17 +644,35 @@ video {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    overflow: hidden; /* Prevent scrolling of the background */
   }
+  #cv-lightbox .close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
   #cv-lightbox img {
     max-width: 110%;
     max-height: 110%;
     box-shadow: 0 0 30px rgba(0,0,0,0.6);
     cursor: pointer;
+    opacity: 1;
+    cursor: zoom-in;
   }
   
   .cv-preview img {

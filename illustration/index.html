@@ -146,31 +146,36 @@
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
       }
     
-      function openLightbox(index) {
-        currentIndex = index;
-        const img = images[index];
-        lightboxImg.src = img.src;
-        lightboxCaption.textContent = img.dataset.caption || "";
-        lightbox.style.display = "flex";
-        disableScroll();
-      }
-    
-      function closeLightbox() {
-        lightbox.style.display = "none";
-        lightboxImg.src = "";
-        lightboxCaption.textContent = "";
-        enableScroll();
-      }
-    
-      function showNext() {
-        currentIndex = (currentIndex + 1) % images.length;
-        openLightbox(currentIndex);
-      }
-    
-      function showPrev() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        openLightbox(currentIndex);
-      }
+     
+    function openLightbox(index) {
+  currentIndex = index;
+  const img = images[index];
+  lightboxImg.src = img.src;
+  lightboxCaption.textContent = img.dataset.caption || "";
+  lightbox.style.display = "flex";
+  disableScroll();
+}
+  
+    function closeLightbox() {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+      lightboxCaption.textContent = "";
+      enableScroll();
+    }
+  
+    function showNext() {
+  currentIndex = (currentIndex + 1) % images.length;
+  const img = images[currentIndex];
+  lightboxImg.src = img.src;
+  lightboxCaption.textContent = img.dataset.caption || "";
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  const img = images[currentIndex];
+  lightboxImg.src = img.src;
+  lightboxCaption.textContent = img.dataset.caption || "";
+}
     
       images.forEach((img, i) => {
         img.addEventListener("click", () => openLightbox(i));

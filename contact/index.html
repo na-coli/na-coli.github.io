@@ -64,36 +64,159 @@
   </div>
 
   <script>
-    const cvImg = document.getElementById('cv-image');
-    const lightbox = document.getElementById('cv-lightbox');
-  
-    function disableScroll() {
-      document.body.style.top = `-${window.scrollY}px`;
-      document.body.style.position = 'fixed';
-      document.body.style.overflow = 'hidden';
-      document.body.style.width = '100%';
-    }
-  
-    function enableScroll() {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.overflow = '';
-      document.body.style.width = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-  
-    cvImg.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      disableScroll();
-    });
-  
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-      enableScroll();
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-    const items = document.querySelectorAll(".project-item");
+  const cvImg = document.getElementById('cv-image');
+const lightbox = document.getElementById('cv-lightbox');
+
+// Create a close button element
+const closeButton = document.createElement('div');
+closeButton.className = 'close-button';
+closeButton.innerHTML = '&times;';
+lightbox.appendChild(closeButton);
+
+// Get the image inside the lightbox
+const lightboxImg = lightbox.querySelector('img');
+let isZoomed = false;
+let isDragging = false;
+let startX, startY, translateX = 0, translateY = 0;
+
+// Open lightbox when clicking the CV image
+cvImg.addEventListener('click', () => {
+  lightbox.style.display = 'flex';
+  disableScroll();
+  // Reset the image position and scale when opening
+  lightboxImg.style.transform = 'scale(1)';
+  translateX = 0;
+  translateY = 0;
+  isZoomed = false;
+});
+
+// Toggle zoom on lightbox image click
+lightboxImg.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (isZoomed) {
+    lightboxImg.style.transform = 'scale(1)';
+    lightboxImg.style.cursor = 'zoom-in';
+    translateX = 0;
+    translateY = 0;
+  } else {
+    lightboxImg.style.transform = 'scale(1.5)';
+    lightboxImg.style.cursor = 'zoom-out';
+  }
+  isZoomed = !isZoomed;
+});
+
+// Close when clicking outside the image or on close button
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+closeButton.addEventListener('click', closeLightbox);
+
+// Handle image dragging when zoomed
+lightboxImg.addEventListener('mousedown', (e) => {
+  if (!isZoomed) return;
+  e.preventDefault();
+  isDragging = true;
+  startX = e.clientX - translateX;
+  startY = e.clientY - translateY;
+  lightboxImg.style.cursor = 'grabbing';
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const x = e.clientX - startX;
+  const y = e.clientY - startY;
+  updateImagePosition(x, y);
+});
+
+document.addEventListener('mouseup', () => {
+  if (isDragging) {
+    isDragging = false;
+    lightboxImg.style.cursor = isZoomed ? 'zoom-out' : 'zoom-in';
+  }
+});
+
+// Add touch support for mobile
+lightboxImg.addEventListener('touchstart', (e) => {
+  if (!isZoomed) return;
+  e.preventDefault();
+  isDragging = true;
+  const touch = e.touches[0];
+  startX = touch.clientX - translateX;
+  startY = touch.clientY - translateY;
+});
+
+document.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const touch = e.touches[0];
+  const x = touch.clientX - startX;
+  const y = touch.clientY - startY;
+  updateImagePosition(x, y);
+});
+
+document.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+
+// Handle mousewheel scroll when zoomed
+lightbox.addEventListener('wheel', (e) => {
+  if (!isZoomed) return;
+  e.preventDefault();
+  translateY -= e.deltaY / 3; // divisor = sensitivity
+  updateImagePosition(translateX, translateY);
+});
+
+// Handle keyboard arrow up/down when zoomed
+document.addEventListener('keydown', (e) => {
+  if (!isZoomed) return;
+  if (e.key === 'ArrowDown') {
+    translateY -= 20; // move image up when pressing down
+    updateImagePosition(translateX, translateY);
+  } else if (e.key === 'ArrowUp') {
+    translateY += 20; // move image down when pressing up
+    updateImagePosition(translateX, translateY);
+  } else if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+    closeLightbox();
+  }
+});
+
+//  update image position
+function updateImagePosition(x, y) {
+  translateX = x;
+  translateY = y;
+  lightboxImg.style.transform = `scale(1.5) translate(${x / 1.5}px, ${y / 1.5}px)`;
+}
+
+// Close lightbox function
+function closeLightbox() {
+  lightbox.style.display = 'none';
+  lightboxImg.style.transform = 'scale(1)';
+  isZoomed = false;
+  enableScroll();
+  translateX = 0;
+  translateY = 0;
+}
+
+// Add escape key functionality
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+    closeLightbox();
+  }
+
+// Prevent scrolling when lightbox is open
+function disableScroll() {
+  document.body.style.overflow = 'hidden';
+}
+
+function enableScroll() {
+  document.body.style.overflow = 'auto';
+};
+
+// fade in animation on images
+
 
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
