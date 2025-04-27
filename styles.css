@@ -152,7 +152,16 @@ header {
     font-size: 2.5rem;
     font-weight: 80;
     margin-bottom: 1rem;
+    cursor: pointer ;
 }
+.logo:hover {
+  font-size: 2.5rem;
+  font-weight: 90;
+  margin-bottom: 1rem;
+  cursor: pointer ;
+  scale: 1.01;
+}
+
 .header-item {
     font-size: 1.2rem !important;
 }
